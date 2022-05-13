@@ -1,31 +1,43 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 
 export default function Textform() {
-    const handleClick = ()=>{
+    //Variable for storing data before and after click
+    const [clickText, setClickText] = useState('');
+
+    //Variable for storing data before and after change
+    const [changeText, setChangeText] = useState('');
+
+    //On Click function
+    const handleClick = (event)=>{
         let inputText = document.getElementById('myBox').value;
-        setText(inputText);
-        document.getElementById('onClick-text').innerHTML = text;
+        // let inputText = this.state = {value: event.target.value};
+        setClickText(inputText);
     }
+
+    //On Click function
     const handleOnChange = (event)=>{
-        setText(event.target.value);
-        let inputText = document.getElementById('myBox-change').value;
-        setText(inputText);
-        document.getElementById('onChange-text').innerHTML = text;
+        setChangeText(event.target.value);
     }
-    const [text, setText] = useState('Enter the text here');
+
+    //The body of the page to be returned
     return (
-        <div>
-            <div className="mb-6">
+        <div className="container">
+            {/*Grid for changing the label text on button click*/}
+            <div className="mb-6 card">
                 <div className="mb-6">
-                    <label id="onClick-text" className="form-label"></label>
-                    <textarea className="form-control" id="myBox" rows="1"></textarea>
+                    <h2>On Click Functionality</h2>
+                    <label className="form-label">{clickText}</label>
+                    <input className="form-control" id="myBox" />
                 </div>
                 <button className="btn btn-primary mb-3" onClick={handleClick}>Confirm</button>
-            </div>  
-            <div className="mb-6">
+            </div> 
+
+            {/*Grid for changing the label text on change*/}
+            <div className="mb-6 card">
                 <div className="mb-6">
-                    <label id="onChange-text" className="form-label"></label>
-                    <textarea className="form-control" id="myBox-change" rows="1" onClick={handleOnChange}></textarea>
+                    <h2>On Change Functionality</h2>
+                    <label className="form-label">{changeText}</label>
+                    <input className="form-control" id="myBox-change" onChange={handleOnChange} />
                 </div>
             </div>   
         </div>
