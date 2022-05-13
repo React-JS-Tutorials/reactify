@@ -8,7 +8,7 @@ export default function Textform() {
     const [changeText, setChangeText] = useState('');
 
     //On Click function
-    const handleClick = (event)=>{
+    const handleClick = ()=>{
         let inputText = document.getElementById('myBox').value;
         // let inputText = this.state = {value: event.target.value};
         setClickText(inputText);
