@@ -1,9 +1,11 @@
-.container{
+.cards{
     margin-top: 40px;
     padding-bottom: 40px;
     justify-content: center;
     border: solid 0.5px;
     display: flex;
+    min-height: 10px;
+    height: 25rem;
 }
 .card {
     height: 20rem;
