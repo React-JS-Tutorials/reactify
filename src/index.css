@@ -1,40 +1,61 @@
-#root{
-    display: flex;
+* {
+    margin: 0;
+    padding: 0;
 }
 .card{
-    margin: 2rem 2rem 0 2rem;
-    width: 40rem;
-    height: 30rem;
+    margin: 1rem 1rem 1rem 1rem;
+    width: 50%;
+    height: 22rem;
     background-color: rgb(205, 205, 226);
+    border-radius: 10px;
+}
+.container{
+    margin-top: 10px;
+    padding-bottom: 5px;
+    justify-content: center;
+    border: solid 0.5px;
+    display: flex;
+    height: 25rem;
 }
 .card-body{
     text-align: center;
     margin-top: 20px;
 }
-h5{
+h4{
+    margin-top: 2rem;
+    text-align: center;
+    text-decoration: underline;
     text-transform: uppercase;
-    margin-top: 8rem;
+    font-weight: 400;
+    color: blue;
 }
-.label{
+.btn{
+    width:100%;
+    color: white;
+    background-color: blue;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+.form-label{
     text-align: center;
     justify-content: center;
-    width: 50%;
+    width: 100%;
     margin-top: 20px;
     background-color: cornflowerblue;
     height: 40px;
     border-radius: 5px;
     border: solid 2px;
 }
-.input{
+.form-control{
+    margin: 5px;
+    padding: 5px;
     text-align: center;
     justify-content: center;
     width: 100%;
     margin-top: 10px;
     border-radius: 5px;
 }
-.btn{
-    width:100%;
-    color: white;
-    background-color: blue;
-    margin-top: 20px;
+p {
+    margin-top: -10px;
+    padding: 5px;
 }
