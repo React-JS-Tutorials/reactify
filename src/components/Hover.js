@@ -89,12 +89,12 @@ export default function Hover(props) {
             </div> 
             {/* adding global buttons */}
             <div className='global-buttons'>
-                <button className="btn btn-primary sm-3" onClick={handleCopy}>Copy</button>
-                <button className="btn btn-primary sm-3" onClick={handleClear}>Clear</button>
-                <button className="btn btn-primary sm-3" onClick={handleLow}>Lower Case</button>
-                <button className="btn btn-primary sm-3" onClick={handleUpper}>Upper Case</button>
-                <button className="btn btn-primary sm-3" onClick={removeSpaces}>Remove Spaces</button>
-                <button className="btn btn-primary sm-3" onClick={handleCapitalize}>Capitalize</button>
+                <button disabled={text.length===0} className="btn btn-primary sm-3" onClick={handleCopy}>Copy</button>
+                <button disabled={text.length===0} className="btn btn-primary sm-3" onClick={handleClear}>Clear</button>
+                <button disabled={text.length===0} className="btn btn-primary sm-3" onClick={handleLow}>Lower Case</button>
+                <button disabled={text.length===0} className="btn btn-primary sm-3" onClick={handleUpper}>Upper Case</button>
+                <button disabled={text.length===0} className="btn btn-primary sm-3" onClick={removeSpaces}>Remove Spaces</button>
+                <button disabled={text.length===0} className="btn btn-primary sm-3" onClick={handleCapitalize}>Capitalize</button>
             </div>
         </div>
     )

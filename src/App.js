@@ -21,8 +21,8 @@ export default function App(){
     return(
         <> 
             <Router> 
-                <Alert alert={alert}/>
                 <Navbar title="Textform"/>
+                <Alert alert={alert}/>
                 <Routes>                
                     {/* <Textform showAlert={showAlert}/> */}
                     <Route exact path="/" element={<Click showAlert={showAlert}/>} />
