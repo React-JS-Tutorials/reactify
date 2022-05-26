@@ -6,7 +6,17 @@ import Second from './components/Second';
 import Third from './components/Third';
 
 export default function App(){
+    /**
+    |--------------------------------------------------
+    | Dynamic alert variable
+    |--------------------------------------------------
+    */
     const [alert, setAlert] = useState(null);
+    /**
+    |--------------------------------------------------
+    | Function for Setting Alert message dynamically
+    |--------------------------------------------------
+    */
     const showAlert = (message, type) =>{
         setAlert({
             msg: message,
@@ -14,15 +24,19 @@ export default function App(){
         })
         setTimeout(() => {
             setAlert(null);
-        }, 1500);
+        }, 300);
     }
+    /**
+    |--------------------------------------------------
+    | Checking all component input values dynamically
+    |--------------------------------------------------
+    */
     const [update, setUpdate] = useState('');
     const updateValue = (secondComp, thirdComp)=>{
         setUpdate({
             secondComp: secondComp,
             thirdComp: thirdComp
         });
-        console.log(update);
     }
     return(
         <> 

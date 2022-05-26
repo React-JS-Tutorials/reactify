@@ -1,29 +1,41 @@
 import React, {useState, useEffect} from 'react';
 
 function First(props) {
-  
+  /**
+  |--------------------------------------------------
+  | Variables for storing inputs & values of first component
+  |--------------------------------------------------
+  */
   const [secondComp, setSecondComp] = useState("");
   const [thirdComp, setThirdComp] = useState("");
+  /**
+  |--------------------------------------------------
+  | useEffect for updating the input values on load and clicking of buttons
+  |--------------------------------------------------
+  */
   useEffect(() => {
-    let count = 0;
     setSecondComp(props.update.secondComp ?? "");
     setThirdComp(props.update.thirdComp ?? "");
-    if(count > 0){
-      props.showAlert('Value Updated!','success');
-      count = count + 1;
-    }
   },[props]);
-
+  /**
+  |--------------------------------------------------
+  | Getting & Setting value of inputs on change
+  |--------------------------------------------------
+  */
   const getSecondComp = (event) => {
     setSecondComp(event.target.value);
-  }
-
-  
+  }  
   const getThirdComp = (event) => {
     setThirdComp(event.target.value);
   }
+  /**
+  |--------------------------------------------------
+  | Updating the value of inputs on Click
+  |--------------------------------------------------
+  */
   const handleClick = () => {
-    props.updateValue(secondComp, thirdComp);    
+    props.updateValue(secondComp, thirdComp);
+    props.showAlert("Value Updated!", "success");  
   }
 return (    
     <div className="col">

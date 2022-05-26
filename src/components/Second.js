@@ -1,24 +1,46 @@
 import React, {useState, useEffect} from 'react';
-
 function Second(props) {
+  /**
+  |--------------------------------------------------
+  | A Variable for storing input of 2nd Component
+  |--------------------------------------------------
+  */
   const [secondComp, setSecondComp] = useState("");
+
+  /**
+  |--------------------------------------------------
+  | useEffect for updating the input values on load and clicking of buttons
+  |--------------------------------------------------
+  */
+  
   useEffect(() => {
-    let count = 0;
     setSecondComp(props.update.secondComp ?? "");
-    if(count > 0){
-      props.showAlert('Value Updated!','success');
-      count = count + 1;
-    }
   },[props]);
+  /**
+  |--------------------------------------------------
+  | Getting & Setting value of input on change
+  |--------------------------------------------------
+  */
   const getSecondComp = (event) => {
     setSecondComp(event.target.value);
   }
-
+  /**
+  |--------------------------------------------------
+  | Updating the value of third component on Click
+  |--------------------------------------------------
+  */
   const handleClick = () => {
     props.updateValue(secondComp, props.update.thirdComp);
+    props.showAlert("Value Updated!", "success");
   }
+  /**
+  |--------------------------------------------------
+  | Reset Button Functionality
+  |--------------------------------------------------
+  */
   const reset = () => {
-    props.updateValue('', '');
+    props.updateValue('', props.update.thirdComp);
+    props.showAlert("Value Updated!", "success");
   }
   return (   
       <div className="col">          
