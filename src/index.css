@@ -3,21 +3,25 @@
     padding: 0;
 }
 .card{
+    display: flex;
+    justify-content: center;
     margin: 1rem 1rem 1rem 1rem;
     width: 50%;
     height: 22rem;
     background-color: rgb(205, 205, 226);
     border-radius: 10px;
 }
+.row{
+    background-color: aqua;
+}
 .container{
     margin-top: 10px;
     padding-bottom: 5px;
-    justify-content: center;
     border: solid 0.5px;
-    display: flex;
-    height: 25rem;
+    height: 34rem;
 }
 .card-body{
+    justify-content: center;
     text-align: center;
     margin-top: 20px;
 }

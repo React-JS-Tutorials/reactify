@@ -1,14 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import './App.css';
 import Alert from './components/Alert';
-import Click from './components/Click';
-import Hover from './components/Hover';
-import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import First from './components/First';
+import Second from './components/Second';
+import Third from './components/Third';
 
 export default function App(){
     const [alert, setAlert] = useState(null);
-
     const showAlert = (message, type) =>{
         setAlert({
             msg: message,
@@ -18,17 +16,26 @@ export default function App(){
             setAlert(null);
         }, 1500);
     }
+    const [update, setUpdate] = useState('');
+    const updateValue = (secondComp, thirdComp)=>{
+        setUpdate({
+            secondComp: secondComp,
+            thirdComp: thirdComp
+        });
+        console.log(update);
+    }
     return(
         <> 
-            <Router> 
-                <Navbar title="Textform"/>
-                <Alert alert={alert}/>
-                <Routes>                
-                    {/* <Textform showAlert={showAlert}/> */}
-                    <Route exact path="/" element={<Click showAlert={showAlert}/>} />
-                    <Route exact path="/hover" element={<Hover showAlert={showAlert}/>} />
-                </Routes>
-            </Router>
+            <div className="container">
+                <div className="row">
+                    <Alert alert={alert}/>
+                    <First showAlert={showAlert} updateValue={updateValue} update={update} />
+                </div> 
+                <div className="row">             
+                    <Second showAlert={showAlert} updateValue={updateValue} update={update} />
+                    <Third showAlert={showAlert} updateValue={updateValue} update={update} />
+                </div>
+            </div>
         </>
     )
 }
