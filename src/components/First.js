@@ -23,7 +23,7 @@ function First(props) {
   |--------------------------------------------------
   */
   const getSecondComp = (event) => {
-    setSecondComp(event.target.value);
+    setSecondComp(event.target.value);   
   }  
   const getThirdComp = (event) => {
     setThirdComp(event.target.value);

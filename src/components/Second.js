@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, memo} from 'react';
 function Second(props) {
   /**
   |--------------------------------------------------
@@ -51,4 +51,4 @@ function Second(props) {
   )
 }
 
-export default Second
+export default memo(Second);

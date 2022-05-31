@@ -52,4 +52,4 @@ function Third(props) {
   )
 }
 
-export default Third
+export default Third;

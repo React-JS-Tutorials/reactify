@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {memo} from 'react'
 
 function Alert(props) {
     const capitalize = (word) =>{
@@ -14,4 +14,4 @@ function Alert(props) {
   )
 }
 
-export default Alert
+export default memo(Alert);
