@@ -15,7 +15,7 @@ function Second(props) {
   
   useEffect(() => {
     setSecondComp(props.update.secondComp ?? "");
-  },[props]);
+  },[props.update.secondComp],[]);
   /**
   |--------------------------------------------------
   | Getting & Setting value of input on change

@@ -15,7 +15,7 @@ function Third(props) {
   */
   useEffect(() => {
     setThirdComp(props.update.thirdComp ?? "");
-  },[props]);
+  },[props.update.thirdComp],[]);
   /**
   |--------------------------------------------------
   | Getting & Setting value of input on change
