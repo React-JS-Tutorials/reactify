@@ -7,7 +7,6 @@ function Third(props) {
   |--------------------------------------------------
   */
   const [thirdComp, setThirdComp] = useState("");
-
   /**
   |--------------------------------------------------
   | useEffect for updating the input values on load and after clicking of buttons

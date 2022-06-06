@@ -6,7 +6,6 @@ function Second(props) {
   |--------------------------------------------------
   */
   const [secondComp, setSecondComp] = useState("");
-
   /**
   |--------------------------------------------------
   | useEffect for updating the input values on load and clicking of buttons
