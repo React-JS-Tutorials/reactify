@@ -16,7 +16,7 @@ function First(props) {
   useEffect(() => {
     setSecondComp(props.update.secondComp ?? "");
     setThirdComp(props.update.thirdComp ?? "");
-  },[props]);
+  },[props.update.secondComp, props.update.thirdComp],[]);
   /**
   |--------------------------------------------------
   | Getting & Setting value of inputs on change
