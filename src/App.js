@@ -11,7 +11,7 @@ export default function App(){
             <NavBar/> 
             <Routes>
                 <Route  path="/" element={<First/>} /> 
-                <Route  path="/second" element={<Second />} >
+                <Route  path="/second/:name" element={<Second />} >
                 </Route>              
             </Routes>
         </div>

@@ -11,7 +11,7 @@ export default function First() {
             <span className="input-group-text" id="addon-wrapping">Name: </span>
             <input type="text" className="form-control" value={name} onChange={(e)=>{setName(e.target.value)}}/>
         </div>
-        <button type="button" className="btn btn-success" onClick={() => navigate('/second', {state:{name:name}})}>Submit</button>
+        <button type="button" className="btn btn-success" onClick={() => navigate(`/second/${name}`)}>Submit</button>
     </div>
   )
 }
