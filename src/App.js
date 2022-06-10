@@ -3,9 +3,8 @@ import './App.css';
 import NavBar from './components/NavBar';
 import First from './components/First';
 import Second from './components/Second';
-import {Routes, Route, useNavigate, useLocation} from "react-router-dom";
+import {Routes, Route, useNavigate} from "react-router-dom";
 export default function App(){
-    const location = useLocation();
     const navigate = useNavigate();
     const [user, setUser] = useState({
         personalInfo: { fName: '', lName: '', gender: '', profile: { developer: '', designer: '' } },
@@ -44,8 +43,8 @@ export default function App(){
             <div className="container">
                 <NavBar/> 
                 <Routes>
-                    <Route path="/" element={<First location={location} navigate={navigate} user={user} onChange={onChange} submit={submit}/>} /> 
-                    <Route path="/second" element={<Second location={location} navigate={navigate}  user={user} onChange={onChange} submit={submit}/>} />             
+                    <Route path="/" element={<First user={user} onChange={onChange} submit={submit}/>} /> 
+                    <Route path="/second" element={<Second user={user} onChange={onChange} submit={submit}/>} />             
                 </Routes>
             </div>
         </div>
