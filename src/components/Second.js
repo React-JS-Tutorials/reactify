@@ -1,19 +1,6 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+export default function App(props) { 
+  let user = props.user;
 
-export default function Second(props) {  
-  const location = useLocation();
-  const navigate = useNavigate();
-  const user = location.state.user;
-  const onChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    console.log((values) => ({ ...values, [name]: value }));
-  };
-  const submit = (event) => {
-    event.preventDefault();
-    navigate("/", {state:{user:user}});
-  };
   return (
     <div>
       <form action="">
@@ -24,7 +11,7 @@ export default function Second(props) {
             placeholder="First Name"
             name="fName"
             value={user.personalInfo.fName}
-            onChange={onChange}
+            onChange={(e)=>{props.onChange(e)}}
           />
         </div>
         <div className="form-group">
@@ -34,7 +21,7 @@ export default function Second(props) {
             placeholder="Last Name"
             name="lName"
             value={user.personalInfo.lName}
-            onChange={onChange}
+            onChange={(e)=>{props.onChange(e)}}
           />
         </div>
         <div className="form-group">
@@ -44,7 +31,7 @@ export default function Second(props) {
             placeholder="Email"
             value={user.contactInfo.email}
             name="email"
-            onChange={onChange}
+            onChange={(e)=>{props.onChange(e)}}
           />
         </div>
         <div className="form-group">
@@ -54,11 +41,11 @@ export default function Second(props) {
             placeholder="phone"
             value={user.contactInfo.phone}
             name="phone"
-            onChange={onChange}
+            onChange={(e)=>{props.onChange(e)}}
           />
         </div>
         <div className="form-group">
-          <select className="form-select" name="state" onChange={onChange} selected={user.address.state} value={user.address.state}>
+          <select className="form-select" name="state" onChange={(e)=>{props.onChange(e)}} selected={user.address.state} value={user.address.state} >
             <option value="">Choose State</option>
             <option value="punjab">Punjab</option>
             <option value="hariyana">Hariyana</option>
@@ -72,7 +59,7 @@ export default function Second(props) {
             placeholder="City"
             name="city"
             value={user.address.city}
-            onChange={onChange}
+            onChange={(e)=>{props.onChange(e)}}
           />
         </div>
         <div className="form-group">
@@ -82,7 +69,7 @@ export default function Second(props) {
             placeholder="Latitude"
             value={user.address.geolocation.lat}
             name="lat"
-            onChange={onChange}
+            onChange={(e)=>{props.onChange(e)}}
           />
         </div>
         <div className="form-group">
@@ -92,43 +79,43 @@ export default function Second(props) {
             placeholder="Longitude"
             value={user.address.geolocation.long}
             name="long"
-            onChange={onChange}
+            onChange={(e)=>{props.onChange(e)}}
           />
         </div>
         <div className="form-group">
           <div className="form-check form-check-inline">
-            <input className="form-check-input" type="radio" name="gender" value="male" onChange={onChange} checked={user.personalInfo.gender === "male"} />
+            <input className="form-check-input" type="radio" name="gender" value="male" onChange={(e)=>{props.onChange(e)}} checked={user.personalInfo.gender === "male"} />
             <label className="form-check-label" htmlFor="flexRadioDefault1">
               Male
             </label>
           </div>
           <div className="form-check form-check-inline">
-            <input className="form-check-input" type="radio" name="gender" value="female" onChange={onChange} checked={user.personalInfo.gender === "female"} />
+            <input className="form-check-input" type="radio" name="gender" value="female" onChange={(e)=>{props.onChange(e)}} checked={user.personalInfo.gender === "female"} />
             <label className="form-check-label" htmlFor="flexRadioDefault2">
               Female
             </label>
           </div>
-          <div className="form-check form-check-inline">
-            <input className="form-check-input" type="checkbox" name="developer" onChange={(e) => { onChange({ target: { name: e.target.name, value: e.target.checked } }) }} checked={user.personalInfo.profile.developer}/>
+        
+        <div className="form-check form-check-inline">
+            <input className="form-check-input" type="checkbox" name="developer" onChange={(e) => { props.onChange({ target: { name: e.target.name, value: e.target.checked } }) }} checked={user.personalInfo.profile.developer}/>
             <label className="form-check-label" htmlFor="flexCheckDisabled">
               Web Developer
             </label>
           </div>
           <div className="form-check form-check-inline">
-            <input className="form-check-input" type="checkbox" name="designer" onChange={(e) => { onChange({ target: { name: e.target.name, value: e.target.checked } }) }} checked={user.personalInfo.profile.designer}/>
+            <input className="form-check-input" type="checkbox" name="designer" onChange={(e) => { props.onChange({ target: { name: e.target.name, value: e.target.checked } }) }} checked={user.personalInfo.profile.designer}/>
             <label className="form-check-label" htmlFor="flexCheckDisabled">
               Web Designer
             </label>
           </div>
-        
-        <div className="form-check form-switch form-check-inline">
-          <input className="form-check-input" type="checkbox" name="newsletter" onChange={(e) => { onChange({ target: { name: e.target.name, value: e.target.checked } }) }} checked={user.newsletter}/>
-          <label className="form-check-label">Newsletter</label>
+          <div className="form-check form-switch form-check-inline">
+            <input className="form-check-input" type="checkbox" name="newsletter" onChange={(e) => { props.onChange({ target: { name: e.target.name, value: e.target.checked } }) }} checked={user.newsletter} />
+            <label className="form-check-label">Newsletter</label>
+          </div>
         </div>
-        </div>
-        <div className="form-group">
-          <button className="btn btn-primary" onClick={submit}>
-            Back
+        <div className="form-group my-2">
+          <button className="btn btn-primary" onClick={(e)=>{props.submit(e, "/")}}>
+            Submit
           </button>
         </div>
       </form>
