@@ -8,12 +8,13 @@ import {Routes, Route} from "react-router-dom";
 export default function App(){
     return(        
         <div className="App">
-            <NavBar/> 
-            <Routes>
-                <Route  path="/" element={<First/>} /> 
-                <Route  path="/second/:name" element={<Second />} >
-                </Route>              
-            </Routes>
+            <div className="container">
+                <NavBar/> 
+                <Routes>
+                    <Route  path="/" element={<First/>} /> 
+                    <Route  path="/second" element={<Second />} />             
+                </Routes>
+            </div>
         </div>
     )
 }
