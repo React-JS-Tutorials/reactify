@@ -96,36 +96,35 @@ export default function Second(props) {
           />
         </div>
         <div className="form-group">
-          <div className="form-check">
+          <div className="form-check form-check-inline">
             <input className="form-check-input" type="radio" name="gender" value="male" onChange={onChange} checked={user.personalInfo.gender === "male"} />
             <label className="form-check-label" htmlFor="flexRadioDefault1">
               Male
             </label>
           </div>
-          <div className="form-check">
+          <div className="form-check form-check-inline">
             <input className="form-check-input" type="radio" name="gender" value="female" onChange={onChange} checked={user.personalInfo.gender === "female"} />
             <label className="form-check-label" htmlFor="flexRadioDefault2">
               Female
             </label>
           </div>
-        </div>
-        <div className="form-group">
-          <div className="form-check">
+          <div className="form-check form-check-inline">
             <input className="form-check-input" type="checkbox" name="developer" onChange={(e) => { onChange({ target: { name: e.target.name, value: e.target.checked } }) }} checked={user.personalInfo.profile.developer}/>
             <label className="form-check-label" htmlFor="flexCheckDisabled">
               Web Developer
             </label>
           </div>
-          <div className="form-check">
+          <div className="form-check form-check-inline">
             <input className="form-check-input" type="checkbox" name="designer" onChange={(e) => { onChange({ target: { name: e.target.name, value: e.target.checked } }) }} checked={user.personalInfo.profile.designer}/>
             <label className="form-check-label" htmlFor="flexCheckDisabled">
               Web Designer
             </label>
           </div>
-        </div>
-        <div className="form-check form-switch">
+        
+        <div className="form-check form-switch form-check-inline">
           <input className="form-check-input" type="checkbox" name="newsletter" onChange={(e) => { onChange({ target: { name: e.target.name, value: e.target.checked } }) }} checked={user.newsletter}/>
           <label className="form-check-label">Newsletter</label>
+        </div>
         </div>
         <div className="form-group">
           <button className="btn btn-primary" onClick={submit}>

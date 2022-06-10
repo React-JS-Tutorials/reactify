@@ -1,9 +1,24 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-
-export default function App() {
+import React, {useState, useEffect} from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+export default function App(props) {
+  /**
+  |--------------------------------------------------
+  | Navigate to interlink the component with another component
+  |--------------------------------------------------
+  */
   const navigate = useNavigate();
-  const [user, setUser] = React.useState({
+  /**
+  |--------------------------------------------------
+  | Handle Back function from next page
+  |--------------------------------------------------
+  */
+  const location = useLocation();
+  /**
+  |--------------------------------------------------
+  | Set Nested object state for holding data
+  |--------------------------------------------------
+  */
+  const [user, setUser] = useState({
     personalInfo: { fName: '', lName: '', gender: '', profile: { developer: '', designer: '' } },
     contactInfo: { email: '', phone: '' },
     address: {
@@ -11,6 +26,17 @@ export default function App() {
     },
     newsletter: ''
   });
+  /**
+  |--------------------------------------------------
+  | On Change function for holding nested values
+  |--------------------------------------------------
+  */
+ useEffect(() => {
+   if(location.state.user){
+     setUser(location.state.user);
+   }
+ }, [location]);
+
   const onChange = e => {
     let data = { ...user };
     let name = e.target.name;
@@ -30,6 +56,11 @@ export default function App() {
     }
     setUser(data);
   };
+  /**
+  |--------------------------------------------------
+  | Submit and send data to next component
+  |--------------------------------------------------
+  */
   const submit = e => {
     e.preventDefault();
     navigate("/second", {state:{user:user}});
@@ -79,8 +110,8 @@ export default function App() {
           />
         </div>
         <div className="form-group">
-          <select className="form-select" name="state" onChange={onChange} selected={user.address.state} >
-            <option value="default">Choose State</option>
+          <select className="form-select" name="state" onChange={onChange} selected={user.address.state} value={user.address.state} >
+            <option value="">Choose State</option>
             <option value="punjab">Punjab</option>
             <option value="hariyana">Hariyana</option>
             <option value="himachal">Himachal</option>
@@ -117,36 +148,37 @@ export default function App() {
           />
         </div>
         <div className="form-group">
-          <div className="form-check">
+          <div className="form-check form-check-inline">
             <input className="form-check-input" type="radio" name="gender" value="male" onChange={onChange} checked={user.personalInfo.gender === "male"} />
             <label className="form-check-label" htmlFor="flexRadioDefault1">
               Male
             </label>
           </div>
-          <div className="form-check">
+          <div className="form-check form-check-inline">
             <input className="form-check-input" type="radio" name="gender" value="female" onChange={onChange} checked={user.personalInfo.gender === "female"} />
             <label className="form-check-label" htmlFor="flexRadioDefault2">
               Female
             </label>
           </div>
+        
+        <div className="form-check form-check-inline">
+            <input className="form-check-input" type="checkbox" name="developer" onChange={(e) => { onChange({ target: { name: e.target.name, value: e.target.checked } }) }} checked={user.personalInfo.profile.developer}/>
+            <label className="form-check-label" htmlFor="flexCheckDisabled">
+              Web Developer
+            </label>
+          </div>
+          <div className="form-check form-check-inline">
+            <input className="form-check-input" type="checkbox" name="designer" onChange={(e) => { onChange({ target: { name: e.target.name, value: e.target.checked } }) }} checked={user.personalInfo.profile.designer}/>
+            <label className="form-check-label" htmlFor="flexCheckDisabled">
+              Web Designer
+            </label>
+          </div>
+          <div className="form-check form-switch form-check-inline">
+            <input className="form-check-input" type="checkbox" name="newsletter" onChange={(e) => { onChange({ target: { name: e.target.name, value: e.target.checked } }) }} checked={user.newsletter} />
+            <label className="form-check-label">Newsletter</label>
+          </div>
         </div>
-        <div className="form-group form-check">
-          <input className="form-check-input" type="checkbox" name="developer" onChange={(e) => { onChange({ target: { name: e.target.name, value: e.target.checked } }) }} checked={user.personalInfo.profile.developer}/>
-          <label className="form-check-label" htmlFor="flexCheckDisabled">
-            Web Developer
-          </label>
-        </div>
-        <div className="form-check">
-          <input className="form-check-input" type="checkbox" name="designer" onChange={(e) => { onChange({ target: { name: e.target.name, value: e.target.checked } }) }} checked={user.personalInfo.profile.designer}/>
-          <label className="form-check-label" htmlFor="flexCheckDisabled">
-            Web Designer
-          </label>
-        </div>
-        <div className="form-check form-switch">
-          <input className="form-check-input" type="checkbox" name="newsletter" onChange={(e) => { onChange({ target: { name: e.target.name, value: e.target.checked } }) }} checked={user.newsletter} />
-          <label className="form-check-label">Newsletter</label>
-        </div>
-        <div className="form-group">
+        <div className="form-group my-2">
           <button className="btn btn-primary" onClick={submit}>
             Submit
           </button>
