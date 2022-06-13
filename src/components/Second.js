@@ -1,4 +1,4 @@
-import React, {useState, useEffect, memo} from 'react';
+import React, {useState, memo} from 'react';
 function Second(props) {
   /**
   |--------------------------------------------------
@@ -6,20 +6,12 @@ function Second(props) {
   |--------------------------------------------------
   */
   const [secondComp, setSecondComp] = useState("");
-  /**
-  |--------------------------------------------------
-  | useEffect for updating the input values on load and clicking of buttons
-  |--------------------------------------------------
-  */
-  
-  useEffect(() => {
-    setSecondComp(props.update.secondComp ?? "");
-  },[props.update.secondComp],[]);
-  /**
-  |--------------------------------------------------
-  | Getting & Setting value of input on change
-  |--------------------------------------------------
-  */
+  const [check2, setCheck2] = useState(props.update.secondComp);
+  const data2 = props.update.secondComp;
+  if(check2 !== data2){ 
+    setSecondComp(data2)
+    setCheck2(props.update.secondComp)
+  }
   const getSecondComp = (event) => {
     setSecondComp(event.target.value);
   }

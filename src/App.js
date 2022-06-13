@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, memo} from 'react';
 import './App.css';
 import Alert from './components/Alert';
 import First from './components/First';
 import Second from './components/Second';
 import Third from './components/Third';
 
-export default function App(){
+function App(){
     /**
     |--------------------------------------------------
     | Dynamic alert variable
@@ -31,7 +31,10 @@ export default function App(){
     | Checking all component input values dynamically
     |--------------------------------------------------
     */
-    const [update, setUpdate] = useState('');
+    const [update, setUpdate] = useState({
+        secondComp: "",
+        thirdComp: ""
+    });
     const updateValue = (secondComp, thirdComp)=>{
         setUpdate({
             secondComp: secondComp,
@@ -53,3 +56,4 @@ export default function App(){
         </>
     )
 }
+export default memo(App)

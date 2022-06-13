@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, memo} from 'react';
 
 function Third(props) {
   /**
@@ -7,19 +7,12 @@ function Third(props) {
   |--------------------------------------------------
   */
   const [thirdComp, setThirdComp] = useState("");
-  /**
-  |--------------------------------------------------
-  | useEffect for updating the input values on load and after clicking of buttons
-  |--------------------------------------------------
-  */
-  useEffect(() => {
-    setThirdComp(props.update.thirdComp ?? "");
-  },[props.update.thirdComp],[]);
-  /**
-  |--------------------------------------------------
-  | Getting & Setting value of input on change
-  |--------------------------------------------------
-  */
+  const [check3, setCheck3] = useState(props.update.thirdComp);
+  const data3 = props.update.thirdComp;
+  if(check3 !== data3){ 
+    setThirdComp(data3)
+    setCheck3(props.update.thirdComp)
+  }
   const getThirdComp = (event) => {
     setThirdComp(event.target.value);
   }
@@ -44,11 +37,11 @@ function Third(props) {
 
   return (
     <div className="col">
-          <input type="text" className="form-control" onChange={getThirdComp} value={ thirdComp ?? ""} id="child-component-3"/>
+          <input type="text" className="form-control" onChange={getThirdComp} value={ thirdComp } id="child-component-3"/>
           <button type="button" className="btn btn-primary" onClick={handleClick} >Update</button>
           <button className="btn btn-primary" onClick={reset}>Reset</button>
     </div> 
   )
 }
 
-export default Third;
+export default memo(Third);
