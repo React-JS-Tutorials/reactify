@@ -1,0 +1,18 @@
+{
+  "posts": [
+    {
+      "title": "Just for testing",
+      "author": "Sanjay",
+      "id": 2
+    },
+    {
+      "title": "Second Testing",
+      "author": "Sanjay",
+      "id": 3
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
