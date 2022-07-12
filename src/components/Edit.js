@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { Container, Form, Button, InputGroup, FormControl, ButtonGroup } from 'react-bootstrap';
 import { getallPosts, editPost } from './service';
 import { useNavigate, useParams } from 'react-router-dom';
 
-export default function Edit() {
+function Edit() {
     const param = useParams();
     const navigate= useNavigate();
     const [post, setPost] = useState({
@@ -61,3 +61,4 @@ export default function Edit() {
         </Container>
   )
 }
+export default memo (Edit)

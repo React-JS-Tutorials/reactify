@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, memo} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Table} from "react-bootstrap";
 import { deletePost, getallPosts } from './service'; 
 import { useNavigate } from 'react-router-dom';
 
-export default function Home() {
+function Home() {
     
     const navigate= useNavigate();
     const [posts, setPosts] = useState([]);    
@@ -53,3 +53,4 @@ export default function Home() {
 
     )
 }
+export default memo(Home)

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { Container, Form, Button, InputGroup, FormControl, ButtonGroup } from 'react-bootstrap';
 import { addPost } from './service';
 import { useNavigate } from 'react-router-dom';
 
-export default function Create() {
+function Create() {
     const [post, setPost] = useState({
         title: "",
         author : ""
@@ -53,3 +53,4 @@ export default function Create() {
     )
 
 }
+export default memo(Create)

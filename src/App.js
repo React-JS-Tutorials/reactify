@@ -7,11 +7,13 @@ import Edit from "./components/Edit";
 const App = () => {
   
   return (
-    <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/create" element={<Create/>}/>
-      <Route path="/edit/:id" element={<Edit/>}/>
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/create" element={<Create/>}/>
+        <Route path="/edit/:id" element={<Edit/>}/>
+      </Routes>
+    </>
   );
 }
 
